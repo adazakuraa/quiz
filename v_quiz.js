@@ -217,6 +217,8 @@ async function z(list_mondai, clicked_id){
     }
     //誤答なら
     else{
+        console.log(r2k(list_mondai[i]));
+        console.log(list_mondai[i]);
         answer2.style.backgroundColor = "red";
         look(r2k(list_mondai[i])).style.backgroundColor = "green";
         await sleep(300);
