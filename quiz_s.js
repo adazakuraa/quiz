@@ -48,6 +48,32 @@ window.addEventListener('DOMContentLoaded', function(){
 	});
 });
 
+//csvファイルを読み込み
+function csv_read(csv_path)
+{
+    const spinner = document.getElementById('loading');
+    fetch(csv_path)
+    .then((res) => {
+        if(!res.ok) {
+            console.log('正常にリクエストを処理できませんでした。');
+        }
+        return res.text();
+    })
+    .then((csv_data) => {
+            let b =csv_data.split('\r\n');
+            d=[];
+            for(let i = 0; i<b.length; i++){
+                let c =b[i].split(',');
+                d.push(c);
+                d=shuffle(d);
+                spinner.classList.add('loaded');
+            }
+    })
+    .catch((error) => {
+        console.log('エラーが発生しました。');
+    })
+}
+
 //問題文と答えを格納する配列
 let d=[];　
 
