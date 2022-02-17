@@ -1,22 +1,6 @@
 //問題文と答えを格納する配列
 let d=[];　
 
-const touchArea1 = document.getElementById("touch-area1")
-//タッチに反応する
-touchArea1.addEventListener("touchstart", () => {
-    if(count2!=0){
-        if(count==0){
-            int();
-        }
-        else if(count==1){
-            stop("you");
-        }
-        else if(count==2){
-            next();
-        }
-    }
-})
-
 //取得した配列をランダムにシャッフル
 const shuffle = ([...array]) => {
     for (let i = array.length - 1; i >= 0; i--) {
