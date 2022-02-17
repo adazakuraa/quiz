@@ -1,3 +1,19 @@
+const touchArea1 = document.getElementById("touch-area1")
+//タッチに反応する
+touchArea1.addEventListener("touchstart", () => {
+    if(count2!=0){
+        if(count==0){
+            int();
+        }
+        else if(count==1){
+            stop("you");
+        }
+        else if(count==2){
+            next();
+        }
+    }
+})
+
 //読み込むcsvファイルをプルダウンから取得
 function select(n){
     n=parseInt(n,10);
