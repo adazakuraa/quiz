@@ -88,6 +88,7 @@ const shuffle = ([...array]) => {
 
 //csvファイルの読み込み => データを多次元配列に格納
 function init(){
+    console.log(touchArea1);
     document.getElementById("mondai").innerHTML = "EnterかShiftを押すと問題文が表示されます。";
 };
 
