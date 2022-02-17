@@ -1,3 +1,5 @@
+window.addEventListener('DOMContentLoaded', ()=>{
+
 const touchArea1 = document.getElementById("touch-area1")
 //タッチに反応する
 touchArea1.addEventListener("touchstart", () => {
@@ -443,3 +445,4 @@ function updateProgress() {
     clearInterval(intervalID);
   }
 }
+});
