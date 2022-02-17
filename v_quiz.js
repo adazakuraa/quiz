@@ -389,7 +389,7 @@ function rule(){
     mondai=parseInt(mondai,10);
 
     //想定されない値が渡されたら初期値に戻す
-    else if(isNaN(mondai) || mondai<1){
+    if(isNaN(mondai) || mondai<1){
         mondai=5;
     }
 }
