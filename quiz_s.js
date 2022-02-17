@@ -89,28 +89,6 @@ const shuffle = ([...array]) => {
 //csvファイルの読み込み => データを多次元配列に格納
 function init(){
     document.getElementById("mondai").innerHTML = "EnterかShiftを押すと問題文が表示されます。";
-    const spinner = document.getElementById('loading');
-    spinner.classList.add('loaded');
-    let file = document.querySelector('#getfile');
-    file.onchange = function (){
-        spinner.classList.remove('loaded');
-        let fileList = file.files;
-        console.log(fileList)
-        let reader = new FileReader(); 
-        reader.readAsText(fileList[0]);
-        reader.onload=function(){
-            let a=reader.result;
-            console.log(a)
-            let b =　a.split('\r\n');
-            d=[];
-            for(let i = 0; i<b.length; i++){
-                let c =b[i].split(',');
-                d.push(c);
-                d=shuffle(d);
-            }
-            spinner.classList.add('loaded');
-        }
-    };
 };
 
 
