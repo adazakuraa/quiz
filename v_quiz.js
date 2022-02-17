@@ -217,8 +217,6 @@ async function z(list_mondai, clicked_id){
     }
     //誤答なら
     else{
-        console.log(r2k(list_mondai[i]));
-        console.log(list_mondai[i]);
         answer2.style.backgroundColor = "red";
         look(r2k(list_mondai[i])).style.backgroundColor = "green";
         await sleep(300);
@@ -542,6 +540,9 @@ var roman2hiragana = {
       if (match = roman.slice(i).match(regex)) {
         if (match[0] === 'n') {
           hiragana += 'ん';
+        } 
+        else if (/^([^n])\1$/.test(match[0])) {
+          hiragana += match[0];
         } 
         else {
           hiragana += table[match[0]];
