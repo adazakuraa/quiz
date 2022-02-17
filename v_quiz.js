@@ -542,10 +542,8 @@ var roman2hiragana = {
       if (match = roman.slice(i).match(regex)) {
         if (match[0] === 'n') {
           hiragana += 'ん';
-        } else if (/^([^n])\1$/.test(match[0])) {
-          hiragana += 'っ';
-          --i;
-        } else {
+        } 
+        else {
           hiragana += table[match[0]];
         }
         i += match[0].length - 1;
