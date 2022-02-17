@@ -382,10 +382,14 @@ function rule(){
     if(window.confirm("出題される問題数を変更しますか？")){
         mondai=prompt("何問にしますか？　（問題は全部で"+pic.length+"問です。)");
     }
+    if(mondai=="魚"){
+        change();
+        mondai=5;
+    }
     mondai=parseInt(mondai,10);
 
     //想定されない値が渡されたら初期値に戻す
-    if(isNaN(mondai) || mondai<1){
+    else if(isNaN(mondai) || mondai<1){
         mondai=5;
     }
 }
