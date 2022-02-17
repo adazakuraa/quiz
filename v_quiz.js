@@ -33,7 +33,7 @@ let s=0; //初めてページを読み込むかどうか
 
 let list_ch=["one","two","three","four"]; //選択肢のidリスト
 let list_top_n=["one","two","three","four","ques","init","result","result2","re","next","to_res","hard","seikai"]; //トップページに必要ないもの
-let list_top_y=["normal_m","hard_m","rule","change"]; //トップページにのみ必要なもの
+let list_top_y=["normal_m","hard_m","rule"]; //トップページにのみ必要なもの
 let list_q=["ques","pic"]; //出題中にずっと必要なもの
 let list_ans=["next","seikai"]; //問題の答えを表示するときに必要なもの
 let list_result=["result","result2","init","ques"] //リザルト画面に必ず必要なもの
