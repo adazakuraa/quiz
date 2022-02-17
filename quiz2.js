@@ -133,7 +133,6 @@ function start(){
 
     ran(pic);
     //画像と問題を表示
-    console.log(pic[i])
     document.getElementById("pic").src = pic[i];
     document.getElementById("ques").innerHTML = "これは何？　("+(i+1)+"/"+mondai+")";
     //選択肢を表示
