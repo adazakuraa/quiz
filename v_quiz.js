@@ -456,7 +456,7 @@ function change(){
     //問題が魚類なら
     if(!Boolean(change_count)){
         pic=Array.from(pic_bird);
-        alert("問題を鳥類にしました！");
+        alert("問題を鳥類にしました！!");
         document.getElementById("pic").src = pic_title[1];
         change_count=1;
     }
