@@ -1,3 +1,76 @@
+const touchArea1 = document.getElementById("touch-area1")
+//タッチに反応する
+touchArea1.addEventListener("touchstart", () => {
+      if(count==0){
+          int();
+      }
+      else if(count==1){
+          stop("you");
+      }
+      else if(count==2){
+          next();
+      }
+})
+
+//読み込むcsvファイルをプルダウンから取得
+function select(n){
+    n=parseInt(n,10);
+    switch(n){
+        case 1:
+            csv_read("csv/STU1~9.csv");
+            break;
+        case 2:
+            csv_read("csv/STU1~23.csv");
+            break;
+        case 3:
+            csv_read("csv/abc.csv");
+            break;
+        case 4:
+            csv_read("csv/漢字.csv");
+            break;
+    }
+}
+
+//プルダウン
+window.addEventListener('DOMContentLoaded', function(){
+       const spinner = document.getElementById('loading');
+
+	// select要素を取得
+	var select_csv = document.querySelector("select[name=csv]");
+     spinner.classList.remove('loaded');
+     select(select_csv.value);
+
+	select_csv.addEventListener('change',function(){
+                spinner.classList.remove('loaded');
+		select(select_csv.value);
+	});
+});
+
+//csvファイルを読み込み
+function csv_read(csv_path)
+{
+    const spinner = document.getElementById('loading');
+    fetch(csv_path)
+    .then((res) => {
+        if(!res.ok) {
+            console.log('正常にリクエストを処理できませんでした。');
+        }
+        return res.text();
+    })
+    .then((csv_data) => {
+            let b =csv_data.split('\r\n');
+            d=[];
+            for(let i = 0; i<b.length; i++){
+                let c =b[i].split(',');
+                d.push(c);
+                d=shuffle(d);
+                spinner.classList.add('loaded');
+            }
+    })
+    .catch((error) => {
+        console.log('エラーが発生しました。');
+    })
+}
 //問題文と答えを格納する配列
 let d=[];　
 
