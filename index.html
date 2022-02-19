@@ -18,6 +18,14 @@
         <div class="h-25 alert alert-dark" role="alert">
             <input type="file" id="getfile" accept="text/*" >
             <pre id="preview" ></pre>
+            <form method="post" action="">
+            <select name="csv">
+              <option value="1">STU1~9</option>
+              <option value="2">STU1~23</option>
+              <option value="3">abc</option>
+              <option value="4">漢字</option>
+            </select>
+            </form><br>
             <a href="readme.html">遊び方</a>&nbsp;&nbsp;
             <a href="game.html">他のゲーム</a>
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
@@ -40,9 +48,9 @@
           <progress id="myProgress" value="-1" max="100"></progress>
         </div>
 
-        <div class="box1">
+        <div class="box1" id="touch-area1">
             <span class="box-title"　id="touch-area1">問題</span>
-            <p id="mondai"></p>
+            <p id="mondai" id="touch-area1"></p>
             <p id="ima"></p>
             <p id="ans"></p>
         </div>
