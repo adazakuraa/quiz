@@ -94,12 +94,7 @@ function init(){
     appear("pic");
 
     //タイトル画像を表示
-    if(!Boolean(change_count)){
-        document.getElementById("pic").src = pic_title[0];
-    }
-    else{
-        document.getElementById("pic").src = pic_title[1];
-    }
+    document.getElementById("pic").src = pic_title[0];
 
     //ロードの完了と同時にローディング画面を非表示にする
     const spinner = document.getElementById('loading');
