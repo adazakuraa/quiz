@@ -152,16 +152,8 @@ function cho(pi){
 //魚の名前から画像ファイル名を取得する
 function get_url(list_name){
     let url;
-    if(change_count==0){
-        url="images/"+list_name+".jpg";
-    }
-    else if(change_count==1){
-        url="bird/"+list_name+".jpg";
-    }
-    else{
-        url="animal/"+list_name+".jpg";
+    url="animal/"+list_name+".jpg";
 
-    }
     return url
 }
 
