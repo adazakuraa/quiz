@@ -560,3 +560,9 @@ var roman2hiragana = {
     }
     return hiraToKana(hiragana);
   }
+
+function show(){
+    if(change_count==1){
+        location.href = "https://adazakuraa.github.io/quiz/bird_list.html";
+    }
+}
