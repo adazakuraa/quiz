@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <title>早押しクイズ</title>
+  <link rel="stylesheet" href="dist/css/lightgallery.css">
+  <link rel="stylesheet" href="dist/css/lg-thumbnail.css">
+  <script src="photo3.js"></script>
+  <style>
+      a{
+        text-decoration: none;
+      }
+      .toc_container {
+        margin-left: 0;
+        padding: 15px 10px 15px 35px; /* 枠内の余白(上右下左) */
+        font-size: 100%; /* 文字サイズ */
+        border:dotted 1px #777; /* 線の種類と色 */
+        background:#f7f7f7; /* 背景 */
+        line-height: 15px;
+        }
+        .toc_title {
+        font-size: 110%;
+        font-weight:bold;   /* 文字の太さ　通常はnormal */
+        color:#000; /* 文字の色 */
+        }
+        .toc_list li{
+        list-style-type:decimal;  /* マークの種類 */
+        }
+        html{
+            scroll-behavior: smooth;
+        }
+        .gotop{
+            display: block;
+            width: 60px;
+            height: 60px;
+            box-sizing: border-box;
+            background: #FFF;
+            border: 1px solid #999;
+            padding-top: 30px;
+            text-align: center;
+            letter-spacing: -1px;
+            font-size: 85%;
+            text-decoration: none;
+            color: #333;
+            opacity: 0.5;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 10000;
+        }
+        .gotop::before{
+            content: "";
+            display: block;
+            border-top: 2px solid #333;
+            border-right: 2px solid #333;
+            width: 25%;
+            height: 25%;
+            top: 25%;
+            left: 0;
+            right: 0;
+            margin: auto;
+            position: absolute;
+            transform: rotate(-45deg);
+        }
+        .gotop:hover{
+            opacity: 1;
+        }
+        @media(max-width:750px){
+            .gotop{
+                width: 40px;
+                height: 40px;
+                text-indent: -9999px;
+                opacity: 1;
+                border: none;
+                background: none;
+                bottom: 10px;
+                right: 10px;
+            }
+            .gotop::before{
+                bottom: 0;
+            }
+        }
+
+  </style>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/js/lightbox.min.js" type="text/javascript"></script>
+</head>
+
+<body onload="create_photo()">
+    <div class="toc_container">
+        <p class="toc_title">目次</p>
+        <ol class="toc_list">
+        <li><a href="#i1">テンジクザメ目</a></li>
+        <li><a href="#i2">メジロザメ目</a></li>
+        <li><a href="#i3">トビエイ目</a></li>
+        <li><a href="#i4">ウナギ目</a></li>
+        <li><a href="#i5">ナマズ目</a></li>
+        <li><a href="#i6">ヒメ目</a></li>
+        <li><a href="#i7">アシロ目</a></li>
+        <li><a href="#i8">キンメダイ目</a></li>
+        <li><a href="#i9">トゲウオ目</a></li>
+        <li><a href="#i10">ボラ目</a></li>
+        <li><a href="#i11">ダツ目</a></li>
+        <li><a href="#i12">スズキ目</a></li>
+        <li><a href="#i13">フグ目</a></li>
+
+        </ol></div>
+    <div id="lightgallery">
+
+    </div>
+
+
+    <a href="#" class="gotop">トップへ</a>
+</body>
+</html>
