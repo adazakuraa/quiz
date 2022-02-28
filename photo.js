@@ -46,48 +46,7 @@ function create_photo(){
         a.href='bird/'+pic_bird[n]+'.jpg';
         a.innerHTML='<img src="bird/'+pic_bird[n]+'.jpg" width="240" height="160"/>　'+r2k(pic_bird[n])+'　<br>';
         photo.appendChild(a);
-    }
-
-    birds.sort(function(a,b){
-        if(a.cate>b.cate){
-            return 1;
-        }
-        else{
-            return -1;
-        }
-    })
-    console.log(birds)
-    let bird1=[];
-    let bird2=[];
-    for (var n=0;n<birds.length;n++){
-        if(n==0){
-            s=pic_bird[n].split('（')[1].split('）')[0];
-        }
-        bird2.push(pic_bird[n]);
-        if(s!=pic_bird[n].split('（')[1].split('）')[0] && n!=0){
-            s=pic_bird[n].split('（')[1].split('）')[0]
-            bird2.sort(function(a,b){
-                if(r2k(a)>r2k(b)){
-                    return 1;
-                }
-                else{
-                    return -1;
-                }
-            })
-            bird1.push(bird2);
-            bird2=[]
-        }
-    }
-    text=""
-    for (var n=0;n<bird1.length;n++){
-        text+=bird1[n]+","
-    }
-    t=text.split(",");
-    text=""
-    for (var n=0;n<t.length;n++){
-        text+='"'+t[n]+'",'
-    }
-    
+    } 
 
 }
 
