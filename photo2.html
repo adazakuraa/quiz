@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <title>早押しクイズ</title>
+  <link rel="stylesheet" href="dist/css/lightgallery.css">
+  <link rel="stylesheet" href="dist/css/lg-thumbnail.css">
+  <script src="photo2.js"></script>
+  <style>
+      a{
+        text-decoration: none;
+      }
+      .toc_container {
+        margin-left: 0;
+        padding: 15px 10px 15px 35px; /* 枠内の余白(上右下左) */
+        font-size: 100%; /* 文字サイズ */
+        border:dotted 1px #777; /* 線の種類と色 */
+        background:#f7f7f7; /* 背景 */
+        line-height: 15px;
+        }
+        .toc_title {
+        font-size: 110%;
+        font-weight:bold;   /* 文字の太さ　通常はnormal */
+        color:#000; /* 文字の色 */
+        }
+        .toc_list li{
+        list-style-type:decimal;  /* マークの種類 */
+        }
+        html{
+            scroll-behavior: smooth;
+        }
+        .gotop{
+            display: block;
+            width: 60px;
+            height: 60px;
+            box-sizing: border-box;
+            background: #FFF;
+            border: 1px solid #999;
+            padding-top: 30px;
+            text-align: center;
+            letter-spacing: -1px;
+            font-size: 85%;
+            text-decoration: none;
+            color: #333;
+            opacity: 0.5;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 10000;
+        }
+        .gotop::before{
+            content: "";
+            display: block;
+            border-top: 2px solid #333;
+            border-right: 2px solid #333;
+            width: 25%;
+            height: 25%;
+            top: 25%;
+            left: 0;
+            right: 0;
+            margin: auto;
+            position: absolute;
+            transform: rotate(-45deg);
+        }
+        .gotop:hover{
+            opacity: 1;
+        }
+        @media(max-width:750px){
+            .gotop{
+                width: 40px;
+                height: 40px;
+                text-indent: -9999px;
+                opacity: 1;
+                border: none;
+                background: none;
+                bottom: 10px;
+                right: 10px;
+            }
+            .gotop::before{
+                bottom: 0;
+            }
+        }
+
+  </style>
+</head>
+
+<body onload="create_photo()">
+    <div class="toc_container">
+        <p class="toc_title">目次</p>
+        <ol class="toc_list">
+        <li><a href="#i1">カモノハシ目</a></li>
+        <li><a href="#i2">オポッサム目</a></li>
+        <li><a href="#i3">ケノレステス目</a></li>
+        <li><a href="#i4">ミクロビオテリウム目</a></li>
+        <li><a href="#i5">フクロネコ目</a></li>
+        <li><a href="#i6">フクロモグラ目</a></li>
+        <li><a href="#i7">バンディクート目</a></li>
+        <li><a href="#i8">カンガルー目</a></li>
+        <li><a href="#i9">ゾウ目</a></li>
+        <li><a href="#i10">カイギュウ目</a></li>
+        <li><a href="#i11">ハイラックス目</a></li>
+        <li><a href="#i12">ツチブタ目</a></li>
+        <li><a href="#i13">ハネジネズミ目</a></li>
+        <li><a href="#i14">テンレック目</a></li>
+        <li><a href="#i15">アルマジロ目</a></li>
+        <li><a href="#i16">アリクイナマケモノ目</a></li>
+        <li><a href="#i17">サル目</a></li>
+        <li><a href="#i18">ツパイ目</a></li>
+        <li><a href="#i19">ヒヨケザル目</a></li>
+        <li><a href="#i20">ウサギ目</a></li>
+        <li><a href="#i21">ネズミ目</a></li>
+        <li><a href="#i22">モグラ目</a></li>
+        <li><a href="#i23">コウモリ目</a></li>
+        <li><a href="#i24">センザンコウ目</a></li>
+        <li><a href="#i25">ネコ目</a></li>
+        <li><a href="#i26">ウマ目</a></li>
+        <li><a href="#i27">クジラ偶蹄目</a></li>
+        </ol></div>
+    <div id="lightgallery">
+
+    </div>
+
+
+    <a href="#" class="gotop">トップへ</a>
+<script src="http://code.jquery.com/jquery-1.12.0.min.js"></script> 
+<script src="dist/lightgallery.umd.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
+<script src="dist/plugins/thumbnail/lg-thumbnail.min.js"></script>
+<script src="dist/plugins/hash/lg-hash.min.js"></script>
+<script type="text/javascript">
+let element = document.querySelector("#lightgallery");
+lightGallery(element, {
+	plugins: [lgHash, lgThumbnail],
+	thumbnail:true,
+	hash:true,
+	galleryId:element.id,
+});
+
+
+</script>
+</body>
+</html>
