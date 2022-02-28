@@ -44,6 +44,7 @@ function create_photo(){
         }
         var a = document.createElement('a');
         a.href='bird/'+pic_bird[n]+'.jpg';
+        a.setAttribute("data-lightbox", "center");
         a.innerHTML='<img src="bird/'+pic_bird[n]+'.jpg" width="240" height="160"/>　'+r2k(pic_bird[n])+'　<br>';
         photo.appendChild(a);
     } 
