@@ -46,41 +46,6 @@ function create_photo(){
             a.innerHTML='<img src="animal/'+pic_animal[n]+'.jpg" width="240" height="160"/>　'+r2k(pic_animal[n])+'　<br>';
             photo.appendChild(a);
         } 
-    
-    
-    for(var n=0;n<pic_animal.length;n++){
-        if(n==0){
-            s=pic_animal[n].split('（')[1].split('）')[0];
-        }
-        else if(s!=pic_animal[n].split('（')[1].split('）')[0]){
-            animal.sort(function(a,b){
-                if(r2k(a)>r2k(b)){
-                    return 1;
-                }
-                else{
-                    return -1;
-                }
-            })
-            s=pic_animal[n].split('（')[1].split('）')[0]
-            animals.push(animal)
-            animal=[];
-        }
-        animal.push('"'+pic_animal[n]+'",');
-    }
-
-    text="";
-    for(var n=0;n<animals.length;n++){
-        text+=animals[n]
-    }
-    result=text.replace(",,",",")
-    while(result!=text){
-        text=text.replace(",,",",")
-        result=result.replace(",,",",")
-    }
-    
-    
-    
-    
 
 }
 
