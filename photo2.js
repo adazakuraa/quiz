@@ -43,6 +43,7 @@ function create_photo(){
             }
             var a = document.createElement('a');
             a.href='animal/'+pic_animal[n]+'.jpg';
+            a.setAttribute("data-lightbox", "center");
             a.innerHTML='<img src="animal/'+pic_animal[n]+'.jpg" width="240" height="160"/>　'+r2k(pic_animal[n])+'　<br>';
             photo.appendChild(a);
         } 
