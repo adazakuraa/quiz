@@ -570,7 +570,7 @@ function show(){
     if(change_count==1){
         location.href = "https://adazakuraa.github.io/quiz/bird_list.html";
     }
-    else{
+    if(change_count==2){
         location.href = "https://adazakuraa.github.io/quiz/animal_list.html";
     }
 }
