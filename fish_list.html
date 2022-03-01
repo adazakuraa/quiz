@@ -110,5 +110,19 @@
 
 
     <a href="#" class="gotop">トップへ</a>
+<script>
+const smoothScroll = () => {
+    let startY = window.pageYOffset;
+    const scroll = () => {
+        startY = window.pageYOffset;
+        let y = startY - (startY - 0) / 20 - 1;
+        window.scrollTo(0, y);
+        if (y < 0) return;
+        requestAnimationFrame(scroll);
+    };
+    requestAnimationFrame(scroll);
+};
+document.getElementById('gotop').addEventListener('click', smoothScroll);
+</script>
 </body>
 </html>
