@@ -564,7 +564,7 @@ var roman2hiragana = {
 
 function show(){
     if(change_count==0){
-        
+        location.href = "https://adazakuraa.github.io/quiz/fish_list.html";
     }
     if(change_count==1){
         location.href = "https://adazakuraa.github.io/quiz/bird_list.html";
