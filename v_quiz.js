@@ -137,6 +137,8 @@ function start(){
     ran(pic);
     //画像と問題を表示
     document.getElementById("pic").src = get_url(pic[i]);
+    document.getElementById("pic_a").setAttribute("data-lightbox", "center");
+    document.getElementById("pic_a").href=get_url(pic[i]);
     document.getElementById("ques").innerHTML = "これは何？　("+(i+1)+"/"+mondai+")";
     //選択肢を表示
     choice(pic);
@@ -308,6 +310,8 @@ function ne(){
 function next(pi,mon){
     //問題を表示
     document.getElementById("pic").src = get_url(pi[i]);
+    document.getElementById("pic_a").setAttribute("data-lightbox", "center");
+    document.getElementById("pic_a").href=get_url(pic[i]);
     document.getElementById("ques").innerHTML = "これは何？　("+(i+1)+"/"+mon+")";
 
     //ノーマルモードなら
