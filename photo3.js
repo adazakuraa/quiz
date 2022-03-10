@@ -26,7 +26,7 @@ function create_photo(){
             var a = document.createElement('a');
             a.href='images/'+pic[n]+'.jpg';
             a.setAttribute("data-lightbox", "center");
-            a.innerHTML='<img src="images/'+pic[n]+'.jpg" width="240" height="160"/>　'+r2k(pic[n])+'　<br>';
+            a.innerHTML='<img src="images/'+pic[n]+'.jpg" width="240" height="160"/>　<br>'+r2k(pic[n])+'　<br>';
             photo.appendChild(a);
         }
         else{
