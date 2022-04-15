@@ -92,6 +92,7 @@ function csv_read(csv_path)
                 d=shuffle(d);
                 spinner.classList.add('loaded');
             }
+	    create_bot();
     })
     .catch((error) => {
         console.log('エラーが発生しました。');
