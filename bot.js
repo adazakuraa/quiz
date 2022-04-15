@@ -37,26 +37,13 @@ function init(){
     };
 };
 
-const touchArea1 = document.getElementById("touch-area1")
-//タッチに反応する
-touchArea1.addEventListener("touchstart", () => {
-      if(count==0){
-          int();
-      }
-      else if(count==1){
-          stop("you");
-      }
-      else if(count==2){
-          next();
-      }
-})
 
 //読み込むcsvファイルをプルダウンから取得
 function select(n){
     n=parseInt(n,10);
     switch(n){
         case 1:
-            csv_read("csv/STU1~9.csv");
+            csv_read("csv/sample.csv");
             break;
         case 2:
             csv_read("csv/STU1~23.csv");
