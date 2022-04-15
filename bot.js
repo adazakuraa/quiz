@@ -16,41 +16,6 @@ function init(){
 　　csv_read("csv/sample.csv");
 };
 
-
-//読み込むcsvファイルをプルダウンから取得
-function select(n){
-    n=parseInt(n,10);
-    switch(n){
-        case 1:
-            csv_read("csv/sample.csv");
-            break;
-        case 2:
-            csv_read("csv/STU1~23.csv");
-            break;
-        case 3:
-            csv_read("csv/abc.csv");
-            break;
-        case 4:
-            csv_read("csv/漢字.csv");
-            break;
-    }
-}
-
-//プルダウン
-window.addEventListener('DOMContentLoaded', function(){
-       const spinner = document.getElementById('loading');
-
-	// select要素を取得
-	var select_csv = document.querySelector("select[name=csv]");
-     spinner.classList.remove('loaded');
-     select(select_csv.value);
-
-	select_csv.addEventListener('change',function(){
-                spinner.classList.remove('loaded');
-		select(select_csv.value);
-	});
-});
-
 //csvファイルを読み込み
 function csv_read(csv_path)
 {
