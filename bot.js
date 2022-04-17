@@ -13,7 +13,7 @@ const shuffle = ([...array]) => {
 
 //csvファイルの読み込み => データを多次元配列に格納
 function init(){
-　　csv_read("csv/sample.csv");
+　　csv_read("csv/quiz_bot.csv");
 };
 
 //csvファイルを読み込み
