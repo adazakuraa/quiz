@@ -26,7 +26,7 @@ function select(n){
             csv_read("csv/abc.csv");
             break;
         case 4:
-            csv_read("csv/漢字.csv");
+            csv_read("csv/bot.csv");
             break;
     }
 }
