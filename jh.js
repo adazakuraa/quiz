@@ -37,7 +37,6 @@ window.addEventListener('DOMContentLoaded', function(){
 	});
 });
 
-let d=[];
 //csvファイルを読み込み
 function csv_read(csv_path)
 {
