@@ -99,6 +99,7 @@ var music4 = new Audio('music/wrong.mp3');
 var music5 = new Audio('music/win.mp3');
 var music6 = new Audio('music/lose.mp3');
 var music7 = new Audio('music/through.mp3');
+let ans_time=2; //答えたタイミング
 
 
 
@@ -156,6 +157,7 @@ async function int(){
 async function int2(){
     await sleep(time3*1.5);
     k2+=1;
+    ans_time=1;
     id=setInterval(appchar2,time);
 }
 
@@ -163,6 +165,7 @@ async function int2(){
 async function int3(){
     await sleep(time3*1.5);
     k2+=1;
+    ans_time=0;
     id=setInterval(appchar3,time);
 }
 
@@ -291,7 +294,7 @@ async function stop() {
             let correct=prompt("不正解。 \n\n"+"現在の正解数:"+seikai+"  誤答数:"+gotou+"\n\n正解数や誤答数を修正したければ1を、この問題を無かったことにしたければ2を押してください。"); 
             if(correct=="1"){
                 gotou-=1;
-                seikai+=1;
+                seikai=seikai+1+ans_time;
                 if(seikai!=maru){
                     music3.play();
                 }
@@ -304,18 +307,18 @@ async function stop() {
     }
     //正解なら
     else if(d[q][0].indexOf(result)!=-1){
-        seikai+=1;
+        seikai=seikai+1+ans_time;
         music3.play();
         let correct=prompt("正解! \n\n"+"現在の正解数:"+seikai+"  誤答数:"+gotou+"\n\n正解数や誤答数を修正したければ1を、この問題を無かったことにしたければ2を押してください。");
         if(correct=="1"){
             gotou+=1;
-            seikai-=1;
+            seikai=seikai-1-ans_time;
             if(gotou!=batu){
                 music4.play();
             }
         }
         if(correct=="2"){
-            seikai-=1;
+            seikai=seikai-1-ans_time;
         }
         res();
     }
@@ -326,7 +329,7 @@ async function stop() {
         let correct=prompt("不正解。 \n\n"+"現在の正解数:"+seikai+"  誤答数:"+gotou+"\n\n正解数や誤答数を修正したければ1を、この問題を無かったことにしたければ2を押してください。"); 
         if(correct=="1"){
             gotou-=1;
-            seikai+=1;
+            seikai=seikai+1+ans_time;
             if(seikai!=maru){
                 music3.play();
             }
@@ -379,6 +382,7 @@ function next() {
     q+=1;
     k=0; 
     count=0;
+    ans_time=2;
 }
 
 //ルール設定
