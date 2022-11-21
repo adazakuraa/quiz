@@ -37,6 +37,33 @@ window.addEventListener('DOMContentLoaded', function(){
 	});
 });
 
+let d=[];
+//csvファイルを読み込み
+function csv_read(csv_path)
+{
+    const spinner = document.getElementById('loading');
+    fetch(csv_path)
+    .then((res) => {
+        if(!res.ok) {
+            console.log('正常にリクエストを処理できませんでした。');
+        }
+        return res.text();
+    })
+    .then((csv_data) => {
+            let b =csv_data.split('\r\n');
+            d=[];
+            for(let i = 1; i<b.length; i++){
+                let c =b[i].split(',');
+                d.push(c);
+                d=shuffle(d);
+                spinner.classList.add('loaded');
+            }
+    })
+    .catch((error) => {
+        console.log('エラーが発生しました。');
+    })
+}
+
 
 //問題文と答えを格納する配列
 let d=[];
@@ -50,31 +77,7 @@ const shuffle = ([...array]) => {
     return array;
 }
 
-//csvファイルの読み込み => データを多次元配列に格納
-function init(){
-    document.getElementById("mondai").innerHTML = "EnterかShiftを押すと問題文が表示されます。";
-    const spinner = document.getElementById('loading');
-    spinner.classList.add('loaded');
-    let file = document.querySelector('#getfile');
-    file.onchange = function (){
-        spinner.classList.remove('loaded');
-        let fileList = file.files;
-        let reader = new FileReader(); 
-        reader.readAsText(fileList[0]);
-        reader.onload=function(){
-            let a=reader.result;
-            let b = a.split('\r\n');
-            d=[];
-            for(let i = 1; i<b.length; i++){
-                let c =b[i].split(',');
-                c=c.filter(Boolean);
-                d.push(c);
-            }
-            d=shuffle(d);
-            spinner.classList.add('loaded');
-        }
-    };
-};
+
 
 //指定ミリ秒の間、処理を止める
 function sleep(ms) {
