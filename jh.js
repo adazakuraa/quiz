@@ -19,6 +19,7 @@ function select(n){
         case 1:
             csv_read("csv/日本史.csv");
             break;
+    }
 }
 
 //プルダウン
