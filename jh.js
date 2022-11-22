@@ -394,7 +394,7 @@ function next() {
     k=0; 
     count=0;
     enter=0;
-    if(q2==maru){
+    if(q2==zenkaku2Hankaku(maru)){
         if (chall1==0){
             alert('今回の結果：'+seikai+'ポイント');
             chall1=1;
@@ -407,6 +407,12 @@ function next() {
         }
         reset();
     }
+}
+
+function zenkaku2Hankaku(str) {
+    return str.replace(/[Ａ-Ｚａ-ｚ０-９]/g, function(s) {
+        return String.fromCharCode(s.charCodeAt(0) - 0xFEE0);
+    });
 }
 
 //ルール設定
