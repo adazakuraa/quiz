@@ -183,7 +183,7 @@ async function int3(){
 //ヒントの種類を提示
 function hint(k2){
     if(ge_no[k2]==2){
-        return text='・時代は';
+        return text='・';
     }
     else if(ge_no[k2]==3){
         if (d[q][1]=="人物"){
