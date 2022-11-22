@@ -295,11 +295,10 @@ document.addEventListener("keydown", (event) => {
     }
 });
 
-gotou=0; //誤答数
 seikai=0; //正解数
-maru=10; //目標正解数
-batu=5; //失格誤答数
 let stopb=0; //stopボタンが押されたか
+let best=0; //ベストスコア
+let chall1=0; //初回か
 
 //問題文を止める
 async function stop() {
@@ -323,52 +322,36 @@ async function stop() {
     if (result==""){
         gotou+=1;
         if(count2==0){
-            let correct=prompt("不正解。 \n\n"+"現在の正解数:"+seikai+"  誤答数:"+gotou+"\n\n正解数や誤答数を修正したければ1を、この問題を無かったことにしたければ2を押してください。"); 
+            let correct=prompt("不正解。 \n\n"+"現在の正解数:"+seikai+"\n\n正解数や誤答数を修正したければ1を、この問題を無かったことにしたければ2を押してください。"); 
             if(correct=="1"){
-                gotou-=1;
-                seikai+=1;
-                if(seikai!=maru){
-                    music3.play();
-                }
+                seikai+=3-k2;
+		alert("現在のポイント："+seikai);
             } 
-            if(correct=="2"){
-                gotou-=1;
-            }  
         }
         res();
     }
     //正解なら
     else if(d[q][0].indexOf(result)!=-1){
-        seikai+=1;
+        seikai+=3-k2;
         music3.play();
-        let correct=prompt("正解! \n\n"+"現在の正解数:"+seikai+"  誤答数:"+gotou+"\n\n正解数や誤答数を修正したければ1を、この問題を無かったことにしたければ2を押してください。");
+        let correct=prompt("正解! \n\n"+"現在の正解数:"+seikai+"\n\n正解数や誤答数を修正したければ1を、この問題を無かったことにしたければ2を押してください。");
         if(correct=="1"){
-            gotou+=1;
-            seikai-=1;
-            if(gotou!=batu){
-                music4.play();
-            }
+            seikai-=3-k2;
+            alert("現在のポイント："+seikai);
         }
         if(correct=="2"){
-            seikai-=1;
+            seikai-=3-k2;
         }
         res();
     }
     //誤答なら
     else{
-        gotou+=1;
         music4.play();
-        let correct=prompt("不正解。 \n\n"+"現在の正解数:"+seikai+"  誤答数:"+gotou+"\n\n正解数や誤答数を修正したければ1を、この問題を無かったことにしたければ2を押してください。"); 
+        let correct=prompt("不正解。 \n\n"+"現在の正解数:"+seikai+"\n\n正解数や誤答数を修正したければ1を、この問題を無かったことにしたければ2を押してください。"); 
         if(correct=="1"){
-            gotou-=1;
-            seikai+=1;
-            if(seikai!=maru){
-                music3.play();
-            }
+            seikai+=3-k2;
+            alert("現在のポイント："+seikai);
         } 
-        if(correct=="2"){
-            gotou-=1;
-        }  
         res();
     }
     
@@ -377,23 +360,13 @@ async function stop() {
 
 //勝利or失格を通知する
 function res(){
-    console.log('res')
-    if(seikai==maru){
-        music5.play();
-        alert("正解数"+maru+"で合格です。");
-    }
-    if(gotou==batu){
-        music6.play();
-        alert("誤答数"+batu+"で失格です。");
-    }
     enter=0;
     count=2;
+    k2=0;
 }
 
 //答えを表示する
 function ans(){
-    console.log('ans')
-    k2=0;
     text2=hint(0);
     question1=text2+d[q][ge_no[0]];
     text2=hint(1);
@@ -421,6 +394,19 @@ function next() {
     k=0; 
     count=0;
     enter=0;
+    if(q2==10){
+        if (chall1==0){
+            alert('今回の結果：'+seikai+'ポイント');
+            chall1=1;
+        }
+        else{
+            alert('今回の結果：'+seikai+'ポイント（ベスト：'+best+'ポイント）');
+        }
+        if (seikai>best){
+            best=seikai;
+        }
+        reset();
+    }
 }
 
 
@@ -453,7 +439,6 @@ function del(li){
 //正解数等のリセット
 function reset(){
     seikai=0;
-    gotou=0;
     q2=0;
     alert("正解数と誤答数がリセットされました。");
 }
