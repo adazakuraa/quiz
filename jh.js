@@ -299,6 +299,7 @@ seikai=0; //正解数
 let stopb=0; //stopボタンが押されたか
 let best=0; //ベストスコア
 let chall1=0; //初回か
+let maru=5; //出題数
 
 //問題文を止める
 async function stop() {
@@ -394,7 +395,7 @@ function next() {
     k=0; 
     count=0;
     enter=0;
-    if(q2==10){
+    if(q2==maru){
         if (chall1==0){
             alert('今回の結果：'+seikai+'ポイント');
             chall1=1;
@@ -409,13 +410,10 @@ function next() {
     }
 }
 
-
 //ルール設定
 function rule(){
-    if(window.confirm("現在のルールは"+maru+"◯"+batu+"×です。変更しますか？")){
-        maru=prompt("何○にしますか？");
-        batu=prompt("何×にしますか？");
-        
+    if(window.confirm(maru+"問のクイズを出題します。出題数を変更しますか？")){
+        maru=prompt("何問出題しますか？");        
     }
 }
 
