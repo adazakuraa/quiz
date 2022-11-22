@@ -210,6 +210,9 @@ async function appchar(){
             int2();
         }
     }
+    else{
+        clearInterval(id);
+    }
 }
 
 async function appchar2(){
@@ -229,6 +232,9 @@ async function appchar2(){
             int3();
         }  
     }
+    else{
+        clearInterval(id2);
+    }
 }
 
 async function appchar3(){
@@ -247,6 +253,9 @@ async function appchar3(){
             k=0;
             start();
         }
+    }
+    else{
+        clearInterval(id3);
     }
 }
 
