@@ -185,7 +185,12 @@ function hint(k2){
         return text='・時代は';
     }
     else if(ge_no[k2]==3){
-        return text='・出身は';
+        if (d[q][1]=="人物"){
+            return text='・出身は';
+        }
+        else{
+            return text='・場所は';
+        }
     }
     else{
         return text='・';
