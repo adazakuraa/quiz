@@ -58,6 +58,7 @@ function csv_read(csv_path)
                 d=shuffle(d);
                 spinner.classList.add('loaded');
             }
+	    document.getElementById("mondai").innerHTML = "Enterを押すかタッチをすると問題文が表示されます。";
     })
     .catch((error) => {
         console.log('エラーが発生しました。');
