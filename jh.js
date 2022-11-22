@@ -53,6 +53,7 @@ function csv_read(csv_path)
             d=[];
             for(let i = 1; i<b.length; i++){
                 let c =b[i].split(',');
+		c=c.filter(Boolean);
                 d.push(c);
                 d=shuffle(d);
                 spinner.classList.add('loaded');
