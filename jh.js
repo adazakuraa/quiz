@@ -1,10 +1,10 @@
 const touchArea1 = document.getElementById("touch-area1")
 //タッチに反応する
 touchArea1.addEventListener("touchstart", () => {
-      if(count==0){
+      if(count==0 && enter==0){
           int();
       }
-      else if(count==1){
+      else if(count==1 && enter==0){
           stop();
       }
       else if(count==2){
@@ -104,6 +104,7 @@ var music5 = new Audio('music/win.mp3');
 var music6 = new Audio('music/lose.mp3');
 var music7 = new Audio('music/through.mp3');
 let ans_time=2; //答えたタイミング
+let enter=0; //キーが押されているかどうか
 
 
 
@@ -141,6 +142,7 @@ async function int(){
     else{
         question="";
         count=1;
+	enter=1;
         if(q==0){
             document.getElementById("mondai").innerHTML = "";
         }
@@ -188,6 +190,7 @@ function hint(k2){
 
 //問題文を読み上げる & 読み終わったら指定ミリ秒後にans関数を呼び出す
 async function appchar(){
+    enter=0;
     document.getElementById("ima").innerHTML = "";
     text=hint(k2);
     question=text+d[q][ge_no[k2]];
@@ -251,13 +254,13 @@ async function appchar3(){
 document.addEventListener("keydown", (event) => {
     let keyname=event.key;
     if(keyname=="Enter" || keyname=="Shift"){
-        if(count==0){
+        if(count==0 && enter==0){
             int();
         }
-        else if (count==1){
+        else if (count==1 && enter==0){
             stop();
         }
-        else{
+        else if(count==2){
             next();
         }
     }
