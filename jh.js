@@ -309,15 +309,8 @@ async function stop() {
     clearInterval(id2);
     clearInterval(id3);
     let result = prompt("答えを入力して「OK」を押してください。");
-    //キャンセルが押された
-    if(result==null){
-        await sleep(1000);
-        int();
-    }
-    //OKが押された
     ans();
     await sleep(1);
-
     //何も入力していない
     if (result==""){
         if(count2==0){
@@ -343,7 +336,7 @@ async function stop() {
         }
         res();
     }
-    //誤答なら
+    //誤答なら or キャンセルなら
     else{
         music4.play();
         let correct=prompt("不正解。 \n\n"+"現在の獲得ポイント:"+seikai+"\n\n正誤を修正したければ1を、この問題を無かったことにしたければ2を押してください。"); 
