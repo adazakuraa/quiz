@@ -298,7 +298,6 @@ document.addEventListener("keydown", (event) => {
 seikai=0; //正解数
 let stopb=0; //stopボタンが押されたか
 let best=0; //ベストスコア
-let chall1=0; //初回か
 let maru=5; //出題数
 
 //問題文を止める
@@ -323,7 +322,7 @@ async function stop() {
     if (result==""){
         if(count2==0){
             let correct=prompt("不正解。 \n\n"+"現在の獲得ポイント:"+seikai+"\n\n正誤を修正したければ1を、この問題を無かったことにしたければ2を押してください。"); 
-            if(correct=="1"){
+            if(zenkaku2Hankaku(correct)=="1"){
                 seikai+=3-k2;
 		alert("現在のポイント："+seikai);
             } 
@@ -335,11 +334,11 @@ async function stop() {
         seikai+=3-k2;
         music3.play();
         let correct=prompt("正解! \n\n"+"現在の獲得ポイント:"+seikai+"\n\n正誤を修正したければ1を、この問題を無かったことにしたければ2を押してください。");
-        if(correct=="1"){
+        if(zenkaku2Hankaku(correct)=="1"){
             seikai-=3-k2;
             alert("現在のポイント："+seikai);
         }
-        if(correct=="2"){
+        if(zenkaku2Hankaku(correct)=="2"){
             seikai-=3-k2;
         }
         res();
@@ -348,7 +347,7 @@ async function stop() {
     else{
         music4.play();
         let correct=prompt("不正解。 \n\n"+"現在の獲得ポイント:"+seikai+"\n\n正誤を修正したければ1を、この問題を無かったことにしたければ2を押してください。"); 
-        if(correct=="1"){
+        if(zenkaku2Hankaku(correct)=="1"){
             seikai+=3-k2;
             alert("現在のポイント："+seikai);
         } 
@@ -395,16 +394,10 @@ function next() {
     count=0;
     enter=0;
     if(q2==zenkaku2Hankaku(maru)){
-        if (chall1==0){
-            alert('今回の結果：'+seikai+'ポイント');
-            chall1=1;
-        }
-        else{
-            alert('今回の結果：'+seikai+'ポイント（ベスト：'+best+'ポイント）');
-        }
         if (seikai>best){
             best=seikai;
         }
+        alert('今回の結果: '+seikai+'ポイント（ベスト: '+best+'ポイント）');
         reset();
     }
 }
