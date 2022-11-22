@@ -438,7 +438,7 @@ function del(li){
 function reset(){
     seikai=0;
     q2=0;
-    alert("正解数と誤答数がリセットされました。");
+    alert("ポイントがリセットされました。");
 }
 
 //bgmをミュートする
