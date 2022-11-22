@@ -321,7 +321,6 @@ async function stop() {
 
     //何も入力していない
     if (result==""){
-        gotou+=1;
         if(count2==0){
             let correct=prompt("不正解。 \n\n"+"現在の獲得ポイント:"+seikai+"\n\n正誤を修正したければ1を、この問題を無かったことにしたければ2を押してください。"); 
             if(correct=="1"){
