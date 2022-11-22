@@ -451,10 +451,10 @@ function del(li){
 
 //正解数等のリセット
 function reset(){
-    del(seikai);
-    del(goto);
+    seikai=0;
+    gotou=0;
     q2=0;
-    document.getElementById("tokuten").innerHTML = "";
+    alert("正解数と誤答数がリセットされました。");
 }
 
 //bgmをミュートする
