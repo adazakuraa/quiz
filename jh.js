@@ -480,6 +480,8 @@ function updateProgress() {
   if (Max == -1) {
     clearInterval(intervalID);
     music7.play();
+    enter=0;
+    count=2;
     ans();
   }
   else if(count==2){
