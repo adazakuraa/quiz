@@ -118,7 +118,7 @@ function random_q(length){
     for(i = min; i <= 4; i++){
         while(true){
             var tmp = intRandom(min, max);
-            if(!randoms.includes(tmp)){
+            if(!randoms.includes(tmp) && d[q][tmp]!="不明"){
             randoms.push(tmp);
             break;
             }
@@ -146,6 +146,7 @@ async function int(){
         question="";
         count=1;
         enter=1;
+	k2=0;
         if(q==0){
             document.getElementById("mondai").innerHTML = "";
         }
