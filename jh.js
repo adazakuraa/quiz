@@ -5,7 +5,7 @@ touchArea1.addEventListener("touchstart", () => {
           int();
       }
       else if(count==1){
-          stop("you");
+          stop();
       }
       else if(count==2){
           next();
