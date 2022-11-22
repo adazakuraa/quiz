@@ -134,15 +134,18 @@ function random_q(length){
 
 
 let id;
+let id2;
+let id3;
 //指定した間隔でappchar関数を呼び出す
 async function int(){
     if(d.length==0){
         alert("使用する問題ファイルを選択してください。");
     }
     else{
+        console.log('int')
         question="";
         count=1;
-	enter=1;
+        enter=1;
         if(q==0){
             document.getElementById("mondai").innerHTML = "";
         }
@@ -154,6 +157,9 @@ async function int(){
         ge_no= random_q(d[q].length);
         console.log(ge_no)
         await sleep(time3);
+        enter=0;
+        stopb=0;
+        document.getElementById("ima").innerHTML = "";
         id=setInterval(appchar,time);
         q2+=1;
     }
@@ -163,16 +169,14 @@ async function int(){
 async function int2(){
     await sleep(time3*1.5);
     k2+=1;
-    ans_time=1;
-    id=setInterval(appchar2,time);
+    id2=setInterval(appchar2,time);
 }
 
 //３つ目のヒント読み上げ
 async function int3(){
     await sleep(time3*1.5);
     k2+=1;
-    ans_time=0;
-    id=setInterval(appchar3,time);
+    id3=setInterval(appchar3,time);
 }
 
 //ヒントの種類を提示
@@ -190,65 +194,65 @@ function hint(k2){
 
 //問題文を読み上げる & 読み終わったら指定ミリ秒後にans関数を呼び出す
 async function appchar(){
-    enter=0;
-    document.getElementById("ima").innerHTML = "";
-    text=hint(k2);
-    question=text+d[q][ge_no[k2]];
-    txt = question.charAt(k);
-    let x = document.getElementById("mondai").innerHTML;
-    if (k <= question.length) {
-        x = x + txt;
-        document.getElementById("mondai").innerHTML = x;
-        k+=1;
+    if (stopb==0){
+        text=hint(k2);
+        question=text+d[q][ge_no[k2]];
+        txt = question.charAt(k);
+        let x = document.getElementById("mondai").innerHTML;
+        if (k <= question.length) {
+            x = x + txt;
+            document.getElementById("mondai").innerHTML = x;
+            k+=1;
+        }
+        else{
+            clearInterval(id);
+            k=0;
+            int2();
+        }
     }
-    else{
-        clearInterval(id);
-        k=0;
-        int2();
-    }
-
 }
 
 async function appchar2(){
-    document.getElementById("ima").innerHTML = "";
-    text=hint(k2);
-    question=text+d[q][ge_no[k2]];
-    txt = question.charAt(k);
-    let x = document.getElementById("mondai2").innerHTML;
-    if (k <= question.length) {
-        x = x + txt;
-        document.getElementById("mondai2").innerHTML = x;
-        k+=1;
+    if (stopb==0){
+        text=hint(k2);
+        question=text+d[q][ge_no[k2]];
+        txt = question.charAt(k);
+        let x = document.getElementById("mondai2").innerHTML;
+        if (k <= question.length) {
+            x = x + txt;
+            document.getElementById("mondai2").innerHTML = x;
+            k+=1;
+        }
+        else{
+            clearInterval(id2);
+            k=0;
+            int3();
+        }  
     }
-    else{
-        clearInterval(id);
-        k=0;
-        int3();
-    }
-
 }
 
 async function appchar3(){
-    document.getElementById("ima").innerHTML = "";
-    text=hint(k2);
-    question=text+d[q][ge_no[k2]];
-    txt = question.charAt(k);
-    let x = document.getElementById("mondai3").innerHTML;
-    if (k <= question.length) {
-        x = x + txt;
-        document.getElementById("mondai3").innerHTML = x;
-        k+=1;
+    if (stopb==0){
+        text=hint(k2);
+        question=text+d[q][ge_no[k2]];
+        txt = question.charAt(k);
+        let x = document.getElementById("mondai3").innerHTML;
+        if (k <= question.length) {
+            x = x + txt;
+            document.getElementById("mondai3").innerHTML = x;
+            k+=1;
+        }
+        else{
+            clearInterval(id3);
+            k=0;
+            start();
+        }
     }
-    else{
-        clearInterval(id);
-        k=0;
-        start();
-    }
-
 }
 
 
 
+let enter=0; //キーがすでに押されているかどうか
 
 //キーイベントを受け付けてstop関数を呼び出す
 document.addEventListener("keydown", (event) => {
@@ -260,7 +264,7 @@ document.addEventListener("keydown", (event) => {
         else if (count==1 && enter==0){
             stop();
         }
-        else if(count==2){
+        else if(count==2 && enter==0){
             next();
         }
     }
@@ -280,10 +284,16 @@ gotou=0; //誤答数
 seikai=0; //正解数
 maru=10; //目標正解数
 batu=5; //失格誤答数
+let stopb=0; //stopボタンが押されたか
 
 //問題文を止める
 async function stop() {
+    stopb=1;
+    console.log('stop')
+    enter=1;
     clearInterval(id);
+    clearInterval(id2);
+    clearInterval(id3);
     let result = prompt("答えを入力して「OK」を押してください。");
     //キャンセルが押された
     if(result==null){
@@ -301,7 +311,7 @@ async function stop() {
             let correct=prompt("不正解。 \n\n"+"現在の正解数:"+seikai+"  誤答数:"+gotou+"\n\n正解数や誤答数を修正したければ1を、この問題を無かったことにしたければ2を押してください。"); 
             if(correct=="1"){
                 gotou-=1;
-                seikai=seikai+1+ans_time;
+                seikai+=1;
                 if(seikai!=maru){
                     music3.play();
                 }
@@ -314,18 +324,18 @@ async function stop() {
     }
     //正解なら
     else if(d[q][0].indexOf(result)!=-1){
-        seikai=seikai+1+ans_time;
+        seikai+=1;
         music3.play();
         let correct=prompt("正解! \n\n"+"現在の正解数:"+seikai+"  誤答数:"+gotou+"\n\n正解数や誤答数を修正したければ1を、この問題を無かったことにしたければ2を押してください。");
         if(correct=="1"){
             gotou+=1;
-            seikai=seikai-1-ans_time;
+            seikai-=1;
             if(gotou!=batu){
                 music4.play();
             }
         }
         if(correct=="2"){
-            seikai=seikai-1-ans_time;
+            seikai-=1;
         }
         res();
     }
@@ -336,7 +346,7 @@ async function stop() {
         let correct=prompt("不正解。 \n\n"+"現在の正解数:"+seikai+"  誤答数:"+gotou+"\n\n正解数や誤答数を修正したければ1を、この問題を無かったことにしたければ2を押してください。"); 
         if(correct=="1"){
             gotou-=1;
-            seikai=seikai+1+ans_time;
+            seikai+=1;
             if(seikai!=maru){
                 music3.play();
             }
@@ -346,11 +356,13 @@ async function stop() {
         }  
         res();
     }
+    
 
 }
 
 //勝利or失格を通知する
 function res(){
+    console.log('res')
     if(seikai==maru){
         music5.play();
         alert("正解数"+maru+"で合格です。");
@@ -359,18 +371,20 @@ function res(){
         music6.play();
         alert("誤答数"+batu+"で失格です。");
     }
+    enter=0;
+    count=2;
 }
 
 //答えを表示する
 function ans(){
+    console.log('ans')
     k2=0;
-    count=2;
-    text=hint(0);
-    question1=text+d[q][ge_no[0]];
-    text=hint(1);
-    question2=text+d[q][ge_no[1]];
-    text=hint(2);
-    question3=text+d[q][ge_no[2]];
+    text2=hint(0);
+    question1=text2+d[q][ge_no[0]];
+    text2=hint(1);
+    question2=text2+d[q][ge_no[1]];
+    text2=hint(2);
+    question3=text2+d[q][ge_no[2]];
     var ans=["A. "]+d[q][0];
     document.getElementById("mondai").innerHTML = question1;
     document.getElementById("mondai2").innerHTML = question2;
@@ -380,6 +394,8 @@ function ans(){
 
 //画面をリセットして次の問題を用意する
 function next() {
+    console.log('next')
+    enter=1;
     question="";
     document.getElementById("mondai").innerHTML = "";
     document.getElementById("mondai2").innerHTML = "";
@@ -389,8 +405,9 @@ function next() {
     q+=1;
     k=0; 
     count=0;
-    ans_time=2;
+    enter=0;
 }
+
 
 //ルール設定
 function rule(){
