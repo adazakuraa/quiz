@@ -261,7 +261,6 @@ async function appchar3(){
 
 
 
-let enter=0; //キーがすでに押されているかどうか
 
 //キーイベントを受け付けてstop関数を呼び出す
 document.addEventListener("keydown", (event) => {
