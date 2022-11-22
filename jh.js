@@ -323,7 +323,7 @@ async function stop() {
     if (result==""){
         gotou+=1;
         if(count2==0){
-            let correct=prompt("不正解。 \n\n"+"現在の正解数:"+seikai+"\n\n正解数や誤答数を修正したければ1を、この問題を無かったことにしたければ2を押してください。"); 
+            let correct=prompt("不正解。 \n\n"+"現在の獲得ポイント:"+seikai+"\n\n正誤を修正したければ1を、この問題を無かったことにしたければ2を押してください。"); 
             if(correct=="1"){
                 seikai+=3-k2;
 		alert("現在のポイント："+seikai);
@@ -335,7 +335,7 @@ async function stop() {
     else if(d[q][0].indexOf(result)!=-1){
         seikai+=3-k2;
         music3.play();
-        let correct=prompt("正解! \n\n"+"現在の正解数:"+seikai+"\n\n正解数や誤答数を修正したければ1を、この問題を無かったことにしたければ2を押してください。");
+        let correct=prompt("正解! \n\n"+"現在の獲得ポイント:"+seikai+"\n\n正誤を修正したければ1を、この問題を無かったことにしたければ2を押してください。");
         if(correct=="1"){
             seikai-=3-k2;
             alert("現在のポイント："+seikai);
@@ -348,7 +348,7 @@ async function stop() {
     //誤答なら
     else{
         music4.play();
-        let correct=prompt("不正解。 \n\n"+"現在の正解数:"+seikai+"\n\n正解数や誤答数を修正したければ1を、この問題を無かったことにしたければ2を押してください。"); 
+        let correct=prompt("不正解。 \n\n"+"現在の獲得ポイント:"+seikai+"\n\n正誤を修正したければ1を、この問題を無かったことにしたければ2を押してください。"); 
         if(correct=="1"){
             seikai+=3-k2;
             alert("現在のポイント："+seikai);
