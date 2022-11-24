@@ -52,12 +52,10 @@ function init(){
 //リストを生成する
 function create_bot(){
     console.log("リストを生成");
-    var bot=document.getElementById("bot");
-    if(!bot){
-        bot=document.createElement("div");
-        bot.id="bot";
-        bot.className="list-group"
-    }
+    bot=document.createElement("div");
+    bot.id="bot";
+    bot.className="list-group"
+    
 
     for (var n=0;n<5;n++){
         //css用
@@ -82,8 +80,8 @@ function create_bot(){
         di.append(p,b);
         
     }
-    console.log(document.body)
-    document.body.appendChild(bot);
+    var last=document.getElementById("last");
+    last.after(bot);
     mondai=[0,1,2,3,4];
     fin_f=0;
 }
