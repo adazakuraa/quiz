@@ -386,7 +386,7 @@ function next() {
     k=0; 
     count=0;
     enter=0;
-    if(q2==zenkaku2Hankaku(maru)){
+    if(q2==maru || q2==zenkaku2Hankaku(maru)){
         if (seikai>best){
             best=seikai;
         }
