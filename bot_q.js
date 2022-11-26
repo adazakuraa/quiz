@@ -202,7 +202,7 @@ function fin(){
 //ゲームをやり直す
 function reset(){
     if(fin_f==0){
-        alert("終了ボタンを押してください")
+        alert("終了ボタンを押してください。")
     }
     else{
         //削除
@@ -217,6 +217,7 @@ function reset(){
         point=0;
         d=shuffle(d)
         create_bot()
+        alert("問題セットがリセットされました。")
     } 
 }
 
