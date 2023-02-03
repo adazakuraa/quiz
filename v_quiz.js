@@ -184,8 +184,12 @@ function get_url(list_name){
     else if(change_count==1){
         url="bird/"+list_name+".jpg";
     }
-    else{
+    else if(change_count==2{
         url="animal/"+list_name+".jpg";
+
+    }
+    else{
+        url="plant/"+list_name+".jpg";
 
     }
     return url
