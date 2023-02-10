@@ -17,8 +17,14 @@
       </div>
     <div class="container">
         <div class="h-25 alert alert-dark" role="alert">
-            <input type="file" id="getfile" accept="text/*" >
-            <pre id="preview" ></pre>
+            <form method="post" action="">
+            <select name="csv">
+              <option value="1">書き（あ、か行）</option>
+              <option value="2">書き（準一以下）</option>
+              <option value="3">四字熟語</option>
+              <option value="4">ことわざ</option>
+            </select>
+            </form>
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                 <output id="ima" style="margin-right: 36%;"></output>      
                 <input type="number" id="volume" value="100">    
