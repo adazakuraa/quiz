@@ -11,7 +11,7 @@ let point=0;
 let fin_f=0; //ゲーム中かどうか
 let re_flag=0; //1セット目かどうか
 let turn=1; //何周目か
-let black=0; //すべて黒文字で表示
+let black=1; //すべて黒文字で表示
 let fl=0;
 
 //読み込むcsvファイルをプルダウンから取得
