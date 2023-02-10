@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="kanji_bot.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous"> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/kanji_bot.css"> 
+    <title>故事成語・四字熟語クイズ</title>
+</head>
+<body onload="init();">
+    <div id="loading">
+        <div class="spinner2"></div>
+      </div>
+    <div class="container">
+        <div class="h-25 alert alert-dark" role="alert">
+            <input type="file" id="getfile" accept="text/*" >
+            <pre id="preview" ></pre>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <output id="ima" style="margin-right: 36%;"></output>      
+                <input type="number" id="volume" value="100">    
+                <button type="button" class=" btn btn-success btn-sm" onclick="re_study()">復習</button>
+                <button type="button" class=" btn btn-success btn-sm" onclick="reset()">次のセットへ</button>
+            </div>
+        </div>
+    </div>
+
+    <p id="last"></p>
+<br>
+<br>
+
+<script src="mamhandwritten.js"></script>
+<script>
+//手書きキャンバスのId名,手書きキャンバスのクリアボタンのId名
+ var mamHandwritten1=new TMamHandwritten("drawCanvasId","clearButtonId");
+</script>
+<canvas id="drawCanvasId" width="700px" height="240px" style="border:1px solid #000;width:700px;height:240px; margin-left: 10%;"></canvas><br>
+<input type="button" id="clearButtonId" value="クリア" style="width:100px;height:35px; margin-left: 78%;" /><br>
+
+
+
+
+
+</body>
+</html>
