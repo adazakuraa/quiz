@@ -12,6 +12,69 @@ let fin_f=0; //ゲーム中かどうか
 let re_flag=0; //1セット目かどうか
 let turn=1; //何周目か
 let black=0; //すべて黒文字で表示
+let fl=0;
+
+//読み込むcsvファイルをプルダウンから取得
+function select(n){
+    n=parseInt(n,10);
+    switch(n){
+        case 1:
+            csv_read("csv/書き（あ、か行）.csv");
+            break;
+        case 2:
+            csv_read("csv/書き（準一以下）.csv");
+            break;
+        case 3:
+            csv_read("csv/四字熟語.csv");
+            break;
+        case 4:
+            csv_read("csv/ことわざ.csv");
+            break;
+    }
+}
+//csvファイルを読み込み
+function csv_read(csv_path)
+{
+    const spinner = document.getElementById('loading');
+    fetch(csv_path)
+    .then((res) => {
+        if(!res.ok) {
+            console.log('正常にリクエストを処理できませんでした。');
+        }
+        return res.text();
+    })
+    .then((csv_data) => {
+            let b =csv_data.split('\r\n');
+            d=[];
+            for(let i = 0; i<b.length; i++){
+                let c =b[i].split(',');
+                d.push(c);
+                d=shuffle(d);
+                spinner.classList.add('loaded');
+                vol=document.getElementById("volume");
+                vol.value=d.length
+            }
+    })
+    .catch((error) => {
+        console.log('エラーが発生しました。');
+    })
+}
+//プルダウン
+window.addEventListener('DOMContentLoaded', function(){
+       const spinner = document.getElementById('loading');
+
+	// select要素を取得
+	var select_csv = document.querySelector("select[name=csv]");
+     spinner.classList.remove('loaded');
+     select(select_csv.value);
+
+	select_csv.addEventListener('change',function(){
+                spinner.classList.remove('loaded');
+		select(select_csv.value);
+	});
+});
+
+
 
 document.addEventListener("keydown", (event) => {
     let keyname=event.key;
@@ -41,42 +104,6 @@ const shuffle = ([...array]) => {
     return array;
 }
 
-//csvファイルの読み込み => データを多次元配列に格納
-function init(){
-    const spinner = document.getElementById('loading');
-    spinner.classList.add('loaded');
-    let file = document.querySelector('#getfile');
-    file.onchange = function (){
-        //画面を消す
-        for(var n=0;n<d.length;n++){
-            var preid="i"+n
-            var a=document.getElementById(preid);
-            if(a!=null){
-                var parent=a.parentNode;
-                parent.remove();
-            }
-        }
-        spinner.classList.remove('loaded');
-        let fileList = file.files;
-        console.log(fileList)
-        let reader = new FileReader(); 
-        reader.readAsText(fileList[0]);
-        reader.onload=function(){
-            let a=reader.result;
-            let b = a.split('\r\n');
-            d=[];
-            for(let i = 0; i<b.length; i++){
-                let c =b[i].split(',');
-                d.push(c);
-            }
-            d=shuffle(d)
-            spinner.classList.add('loaded');
-            vol=document.getElementById("volume");
-            vol.value=d.length
-            create_bot();
-        }
-    };
-};
 
 //新しいリストの生成
 function re_list(){
@@ -313,7 +340,11 @@ function fin(thisss){
 
 //再スタート
 function reset(){
-    if(re_flag==1 && non_flag==0){
+    if(fl==0){
+        create_bot()
+        fl=1;
+    }
+    else if(re_flag==1 && non_flag==0){
         turn=1;
         re_flag=0;
         create_bot()
