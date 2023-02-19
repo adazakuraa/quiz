@@ -19,7 +19,7 @@ function select(n){
     n=parseInt(n,10);
     switch(n){
         case 1:
-            csv_read("csv/書き（あ、か行）.csv");
+            csv_read("csv/書き.csv");
             break;
         case 2:
             csv_read("csv/書き（準一以下）.csv");
