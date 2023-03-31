@@ -22,7 +22,7 @@ function select(n){
             csv_read("csv/書き.csv");
             break;
         case 2:
-            csv_read("csv/書き（準一以下）.csv");
+            csv_read("csv/kotowaza.csv");
             break;
         case 3:
             csv_read("csv/四字熟語.csv");
