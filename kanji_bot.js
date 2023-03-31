@@ -28,7 +28,7 @@ function select(n){
             csv_read("csv/四字熟語.csv");
             break;
         case 4:
-            csv_read("csv/ことわざ.csv");
+            csv_read("csv/kotowaza.csv");
             break;
     }
 }
