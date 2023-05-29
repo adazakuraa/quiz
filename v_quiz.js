@@ -401,7 +401,7 @@ function rule(){
     if(window.confirm("出題される問題数を変更しますか？")){
         mondai=prompt("何問にしますか？　（問題は全部で"+pic.length+"問です。)");
     }
-    if(mondai=="あ"){
+    if(mondai=="タテキン"){
         change();
         mondai=5;
     }
