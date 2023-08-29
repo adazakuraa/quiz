@@ -82,7 +82,6 @@ function choice(ch,dq){
 
 //csvファイルの読み込み => データを多次元配列に格納
 function init(){
-    touchArea1 = document.getElementById("touch-area1")
     del(choice_button);
     document.getElementById("mondai").innerHTML = "Spaceを押してゲームを開始。";
     const spinner = document.getElementById('loading');
@@ -133,21 +132,6 @@ let goto_flag=0; //誤答したら1になる
 
 let cId;
 
-const touchArea1 = document.getElementById("touch-area1")
-//タッチに反応する
-touchArea1.addEventListener("touchstart", () => {
-      if(count==0){
-          const n = 3; // 配列のインデックス
-            d_kanji = d.filter(item => item[n] === "漢字");
-            d_katakana = d.filter(item => item[n] === "カタカナ");
-            d_jinmei = d.filter(item => item[n] === "人名");
-            d_seibutu = d.filter(item => item[n] === "生物");
-            d_kotoba = d.filter(item => item[n] === "言葉");
-            d_alphabet = d.filter(item => item[n] === "アルファベット");
-            d_sonota = d.filter(item => item[n] === "");
-          int();
-      }
-})
 
 //キーイベントを受け付けて適切な関数を呼び出す
 document.addEventListener("keydown", (event) => {
