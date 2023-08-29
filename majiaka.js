@@ -82,6 +82,7 @@ function choice(ch,dq){
 
 //csvファイルの読み込み => データを多次元配列に格納
 function init(){
+    touchArea1 = document.getElementById("touch-area1")
     del(choice_button);
     document.getElementById("mondai").innerHTML = "Spaceを押してゲームを開始。";
     const spinner = document.getElementById('loading');
