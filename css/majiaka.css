@@ -1,0 +1,130 @@
+.box1 {
+    position: relative;
+    margin: 2em 0;
+    height: 250px;
+    border: solid 3px #2c6739;
+    font-size: large;
+}
+#mondai{
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 13px;
+}
+#mondai2{
+  padding-left: 20px;
+  padding-right: 20px;
+}
+#mondai3{
+  padding-left: 20px;
+  padding-right: 20px;
+}
+#ans{
+    position: absolute;
+    padding-left: 20px;
+    padding-right: 20px;
+    bottom: 10px;
+    right: 0;
+    margin:0;
+}
+#ima{
+    font-size: x-large;
+    text-align: center;
+    padding-top: 20px;
+    font-weight: bold;
+
+}
+#ima2{
+  font-size: large;
+  text-align: center;
+  padding-top: 20px;
+  font-weight: bold;
+
+}
+#genre{
+  font-size: large;
+  text-align: center;
+  font-weight: bold;
+
+
+}
+.box1 .box-title {
+    position: absolute;
+    display: inline-block;
+    top: -27px;
+    left: -3px;
+    padding: 0 9px;
+    height: 25px;
+    line-height: 25px;
+    font-size: 17px;
+    background: #2c6739;
+    color: #ffffff;
+    font-weight: bold;
+    border-radius: 5px 5px 0 0;
+}
+
+#myProgress{
+    float: right;
+}
+
+#loading {
+    width: 100vw;
+    height: 100vh;
+    transition: all 1s;
+    background-color: #0bd;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+  }
+  .spinner {
+    width: 100px;
+    height: 100px;
+    margin: 200px auto;
+    background-color: #fff;
+    border-radius: 100%;
+    animation: sk-scaleout 1.0s infinite ease-in-out;
+  }
+  @keyframes sk-scaleout {
+    0% {
+      transform: scale(0);
+    } 100% {
+      transform: scale(1.0);
+      opacity: 0;
+    }
+  }
+
+  .loaded {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .btn-custom {
+    background-color: rgb(54, 185, 87);
+    color: white;
+    margin: 7px; /* 隙間を開ける */
+    border-radius: 0px;
+    font-weight: bold;
+  }
+  form {
+    text-align: center;
+  }
+
+  .btn2 {
+    background-color: #668ad8;
+    color: white;
+    font-size: 18px;
+    padding: 10px 20px;
+    width: 100%;
+    margin-bottom: 5px;
+}
+input[type="radio"]:checked + label {
+  background-color: blue;
+}
+
+input[type="radio"] {
+  display: none;
+}
+.one,.two,.three,.four{
+  display:none;
+}
+
