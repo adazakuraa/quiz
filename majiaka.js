@@ -143,6 +143,8 @@ function preint(){
             d_kotoba = d.filter(item => item[n] === "言葉");
             d_alphabet = d.filter(item => item[n] === "アルファベット");
             d_sonota = d.filter(item => item[n] === "");
+            let ele = document.getElementById(preint);
+            ele.style.display = 'none';
             int()
     }
 }
@@ -304,6 +306,8 @@ function top_return(){
     goto_flag=0;
     const titleElement = document.getElementById('titleElement');
     titleElement.textContent ="四択クイズ";
+    let ele = document.getElementById(preint);
+    ele.style.display = '';
     re_color();
 }
 
