@@ -306,7 +306,7 @@ function top_return(){
     goto_flag=0;
     const titleElement = document.getElementById('titleElement');
     titleElement.textContent ="四択クイズ";
-    let ele = document.getElementById(preint);
+    let ele = document.getElementById("preint");
     ele.style.display = '';
     re_color();
 }
