@@ -133,6 +133,20 @@ let goto_flag=0; //誤答したら1になる
 let cId;
 
 
+function preint(){
+    if(count==0){
+        const n = 3; // 配列のインデックス
+            d_kanji = d.filter(item => item[n] === "漢字");
+            d_katakana = d.filter(item => item[n] === "カタカナ");
+            d_jinmei = d.filter(item => item[n] === "人名");
+            d_seibutu = d.filter(item => item[n] === "生物");
+            d_kotoba = d.filter(item => item[n] === "言葉");
+            d_alphabet = d.filter(item => item[n] === "アルファベット");
+            d_sonota = d.filter(item => item[n] === "");
+            int()
+    }
+}
+
 //キーイベントを受け付けて適切な関数を呼び出す
 document.addEventListener("keydown", (event) => {
     let keyname=event.key;
