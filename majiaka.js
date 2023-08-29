@@ -183,8 +183,7 @@ document.addEventListener("keydown", (event) => {
 let id;
 //指定した間隔でappchar関数を呼び出す
 async function int(){
-    let ele = document.getElementById(preint);
-    ele.style.display = 'none';
+    document.getElementById(preint).innerHTML="";
     if((q+1)%10==0){
         if(time!=10){
             time-=10;
