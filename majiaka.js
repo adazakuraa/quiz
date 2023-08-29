@@ -143,8 +143,6 @@ function preint(){
             d_kotoba = d.filter(item => item[n] === "言葉");
             d_alphabet = d.filter(item => item[n] === "アルファベット");
             d_sonota = d.filter(item => item[n] === "");
-            let ele = document.getElementById(preint);
-            ele.style.display = 'none';
             int()
     }
 }
@@ -185,6 +183,8 @@ document.addEventListener("keydown", (event) => {
 let id;
 //指定した間隔でappchar関数を呼び出す
 async function int(){
+    let ele = document.getElementById(preint);
+    ele.style.display = 'none';
     if((q+1)%10==0){
         if(time!=10){
             time-=10;
