@@ -132,6 +132,13 @@ let goto_flag=0; //誤答したら1になる
 
 let cId;
 
+const touchArea1 = document.getElementById("touch-area1")
+//タッチに反応する
+touchArea1.addEventListener("touchstart", () => {
+      if(count==0){
+          int();
+      }
+})
 
 //キーイベントを受け付けて適切な関数を呼び出す
 document.addEventListener("keydown", (event) => {
