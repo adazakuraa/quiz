@@ -136,6 +136,11 @@ let goto_flag=0; //誤答したら1になる
 
 let cId;
 
+var music1 = new Audio('music/question.mp3'); //効果音
+var music2 = new Audio('music/correct.mp3');  //正解
+var music3 = new Audio('music/through.mp3');  //誤答
+var music4 = new Audio('music/win.mp3');      //ゲーム終了
+
 
 function preint(){
     if(count==0){
@@ -204,6 +209,7 @@ async function int(){
         document.getElementById("mondai").innerHTML = "";
         document.getElementById("ima").innerHTML = "問題";
         await sleep(time3);
+        music1.play();
     }
     appear(choice_button);
     updateCountdown();
@@ -222,7 +228,8 @@ function updateCountdown() {
         clearInterval(interval2);
         clearInterval(id);
         goto_flag=1;
-        alert("ゲームオーバー！\n\n"+seikaisuu+"問正解。");
+        music４.play();
+        alert("ゲーム終了！\n\n"+seikaisuu+"問正解。");
         gameover=1;
         show_ans();
         look(d[q][1]).style.backgroundColor = "green";
@@ -272,6 +279,7 @@ async function check(clicked_id){
 
     //正解なら
     if(answer==d[q][1]){
+        music2.play();
         const titleElement = document.getElementById('titleElement');
         titleElement.textContent = secondsRemaining;
         answer2.style.backgroundColor = "green";
@@ -282,6 +290,7 @@ async function check(clicked_id){
     }
     //誤答なら
     else{
+        music3.play();
         clearInterval(interval2);
         goto_flag=1;
         answer2.style.backgroundColor = "red";
