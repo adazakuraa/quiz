@@ -127,7 +127,9 @@ let time=80; //文字が表示される間隔（ミリ秒）
 let time2=2000; //問題が読み切られてから答えが表示されるまでの時間（ミリ秒）
 let time3=1000;  //第n問目の表示から問題文が表示されるまでの時間（ミリ秒）
 
-let secondsRemaining = 30; //持ち時間
+let secondsRemaining = 60; //持ち時間
+let seikaisuu=0; //正解数
+let gameover=0; //ゲームオーバーになったら1になる
 
 let ans_flag=0; //答えを表示後は1になる
 let goto_flag=0; //誤答したら1になる
@@ -188,7 +190,7 @@ let id;
 async function int(){
     let ele = document.getElementById("preint");
     ele.style.display = 'none';
-    if((q+1)%5==0){
+    if((q+1)%10==0){
         if(time!=10){
             time-=10;
         }
@@ -200,11 +202,10 @@ async function int(){
     count=1;
     if(q==0){
         document.getElementById("mondai").innerHTML = "";
+        document.getElementById("ima").innerHTML = "問題";
+        await sleep(time3);
     }
     appear(choice_button);
-    document.getElementById("ima").innerHTML = "第"+(q2+1)+"問";
-    document.getElementById("ima2").innerHTML = "問題形式："+d[q][2];
-    await sleep(time3);
     updateCountdown();
     interval2 = setInterval(updateCountdown, 1000);
     id=setInterval(appchar,time);
@@ -219,8 +220,10 @@ function updateCountdown() {
   
     if (secondsRemaining < 0) {
         clearInterval(interval2);
+        clearInterval(id);
         goto_flag=1;
-        alert("ゲームオーバー！\n\n"+q+"問正解。");
+        alert("ゲームオーバー！\n\n"+seikaisuu+"問正解。");
+        gameover=1;
         show_ans();
         look(d[q][1]).style.backgroundColor = "green";
     }
@@ -252,7 +255,7 @@ function ans(clicked_id){
         clearInterval(id);
         check(clicked_id);    
     }
-    else if(goto_flag==1){
+    else if(gameover==1){
         let result = prompt("もう一回プレイするには「OK」を押してください。");
         if(result!=null){
             top_return();
@@ -269,12 +272,10 @@ async function check(clicked_id){
 
     //正解なら
     if(answer==d[q][1]){
-        secondsRemaining+=Math.ceil((d[q][0].length-k)*time*2/1000)
         const titleElement = document.getElementById('titleElement');
         titleElement.textContent = secondsRemaining;
         answer2.style.backgroundColor = "green";
         await sleep(300);
-        alert("正解!!")
         show_ans();
         start();
         setTimeout(next,time2); 
@@ -286,8 +287,9 @@ async function check(clicked_id){
         answer2.style.backgroundColor = "red";
         look(d[q][1]).style.backgroundColor = "green";
         await sleep(300);
-        alert("ゲームオーバー！\n\n"+q+"問正解。");
         show_ans();
+        start();
+        setTimeout(next,time2); 
     }
 }
 
@@ -329,7 +331,9 @@ function top_return(){
     let ele = document.getElementById("preint");
     ele.style.display = '';
     re_color();
-    secondsRemaining=30;
+    secondsRemaining=60;
+    seikaisuu=0;
+    gameover=0;
 }
 
 //次の問題へ行く
