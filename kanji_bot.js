@@ -313,6 +313,7 @@ function next_bot(th){
     var a=document.getElementById(th.id);
     var parent=a.parentNode;
     parent.remove();
+    document.getElementById("clearButtonId").click();
     if(non_flag==0){
         add_bot(th);
     }
