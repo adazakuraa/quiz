@@ -1,0 +1,107 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+#game-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    text-align: center;
+    position: relative;
+    width: 400px; /* Set a fixed width to ensure proper alignment */
+    height: 500px; /* Adjust height to fit all content properly */
+}
+  
+
+#status-container {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    box-sizing: border-box;
+    border-bottom: 2px solid #cccccc; /* 下線を追加 */
+    padding-bottom: 7px; /* 下線と他の要素との間隔を開ける */
+}
+
+#current-question-number-container, #life-container {
+    font-size: 20px;
+    margin: 0;
+}
+
+#question-container {
+    font-size: 18px;
+    margin-top: 60px; /* Adjust margin to provide space for status-container */
+    margin-bottom: 20px;
+}
+
+#options-container {
+    margin-bottom: 20px;
+}
+
+/* ボタンを中央揃えにする */
+button {
+    display: block;
+    margin: 10px auto; /* 横方向の中央揃え */
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+#submit-answer {
+    font-size: 24px;
+    padding: 12px 25px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+#start-game {
+    font-size: 24px;
+    padding: 15px 30px;
+    background-color: #636edf;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+#restart-game {
+    font-size: 24px;
+    padding: 10px 20px;
+    background-color: #636edf;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.selected {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.correct {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.incorrect {
+    background-color: #f44336;
+    color: white;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
